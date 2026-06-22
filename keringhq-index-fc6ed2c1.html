@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 开云</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f5f5f3;
+      color: #1e1e1c;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Noto Sans SC", sans-serif;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      padding: 2.8rem 1.5rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 3rem 2.5rem;
+      border-radius: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    /* —— 开场 —— */
+    .hero-line {
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      color: #7e7e76;
+      margin-bottom: 1.2rem;
+      font-weight: 350;
+    }
+
+    .hero-line::before {
+      content: "·";
+      margin-right: 0.45rem;
+      color: #b7b7ad;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      color: #1a1a18;
+      margin-bottom: 1.8rem;
+    }
+
+    h1 small {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #6b6b62;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    /* —— 承接段落 —— */
+    .intro-text {
+      font-size: 1rem;
+      color: #2b2b28;
+      margin-bottom: 2rem;
+    }
+
+    .intro-text a {
+      color: #2a5c4a;
+      text-decoration: none;
+      border-bottom: 1px solid #d1d9d0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .intro-text a:hover {
+      border-bottom-color: #2a5c4a;
+      color: #1d4034;
+    }
+
+    .separator {
+      width: 3.6rem;
+      height: 1px;
+      background: #dcdcd2;
+      margin: 2rem 0 2.4rem;
+    }
+
+    /* —— 特点列表 —— */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .feature-item .num {
+      font-size: 0.8rem;
+      font-weight: 350;
+      color: #a5a59b;
+      line-height: 1.7;
+      min-width: 1.6rem;
+      text-align: right;
+    }
+
+    .feature-item .content {
+      flex: 1;
+    }
+
+    .feature-item .content strong {
+      font-weight: 500;
+      color: #1e1e1c;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .feature-item .content p {
+      font-size: 0.95rem;
+      color: #3e3e38;
+      margin: 0;
+    }
+
+    /* —— 温和提醒段落 —— */
+    .note-box {
+      background: #f5f3ee;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .note-box h3 {
+      font-size: 1rem;
+      font-weight: 450;
+      letter-spacing: 0.01em;
+      color: #35352e;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-box p {
+      font-size: 0.93rem;
+      color: #46463e;
+      line-height: 1.6;
+    }
+
+    .note-box p + p {
+      margin-top: 0.8rem;
+    }
+
+    /* —— 简短的 FAQ 摘要 —— */
+    .faq-mini {
+      margin: 2.2rem 0 0.8rem;
+    }
+
+    .faq-mini h2 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #1a1a18;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-mini details {
+      border-bottom: 1px solid #eeeeea;
+      padding: 0.6rem 0;
+    }
+
+    .faq-mini details:first-of-type {
+      border-top: 1px solid #eeeeea;
+    }
+
+    .faq-mini summary {
+      font-size: 0.96rem;
+      font-weight: 420;
+      color: #2b2b26;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-mini summary::after {
+      content: "﹀";
+      font-size: 0.9rem;
+      color: #9b9b8e;
+      transition: transform 0.2s;
+    }
+
+    .faq-mini details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-mini details p {
+      font-size: 0.9rem;
+      color: #4a4a42;
+      padding: 0.4rem 0 0.5rem 0.2rem;
+      line-height: 1.6;
+    }
+
+    /* —— 温和结尾 —— */
+    .closing {
+      margin-top: 2.6rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eeece5;
+      font-size: 0.9rem;
+      color: #6b6b60;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .closing a {
+      color: #2a5c4a;
+      text-decoration: none;
+      border-bottom: 1px solid #d1d9d0;
+      transition: border-color 0.2s;
+    }
+
+    .closing a:hover {
+      border-bottom-color: #2a5c4a;
+    }
+
+    /* —— 响应式 —— */
+    @media (max-width: 540px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .page {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .feature-item .num {
+        min-width: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 开场短句 -->
+  <div class="hero-line">一个简明指南</div>
+
+  <h1>
+    开云
+    <small>访问前值得了解的几件事</small>
+  </h1>
+
+  <!-- 承接段落 -->
+  <div class="intro-text">
+    <p>
+      如果你正准备了解<a href="https://keringhq.com">开云</a>，这里有一份整理后的说明页。页面内容围绕集团的结构、品牌特点以及访问时可能关心的细节展开，不含冗余推介，只提供经核实的陈述。
+    </p>
+    <p>
+      以下信息基于公开资料及平台自身说明整理，适用于初次接触或需要快速回顾的读者。
+    </p>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- 特点列表 -->
+  <div class="feature-grid">
+    <div class="feature-item">
+      <span class="num">01</span>
+      <div class="content">
+        <strong>品牌组合</strong>
+        <p>旗下拥有多个高辨识度时装、皮具及珠宝品牌，覆盖奢侈品与高端生活方式领域。不同品牌保持独立运营与创意表达。</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <span class="num">02</span>
+      <div class="content">
+        <strong>可持续理念</strong>
+        <p>在供应链透明度、材料溯源及环境影响评估方面推行了一套可查核的标准，部分数据定期在官网公开。</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <span class="num">03</span>
+      <div class="content">
+        <strong>地域覆盖</strong>
+        <p>总部位于法国，业务遍及欧洲、亚太及美洲。官网提供多语言界面，方便不同地区用户获取本地化内容。</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <span class="num">04</span>
+      <div class="content">
+        <strong>投资者关系</strong>
+        <p>财务报告、股东信息及治理文件均统一归置于投资者专栏，支持直接下载 PDF 原档。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 温和提醒 / 访问提示 -->
+  <div class="note-box">
+    <h3>访问前提醒</h3>
+    <p>
+      官网页面结构较为集中，主要功能入口（品牌目录、新闻室、可持续发展章节）均位于顶部导航。建议使用桌面端浏览器以获得完整布局，移动端体验同样流畅，部分交互菜单会折叠至汉堡图标。
+    </p>
+    <p>
+      搜索框位于页面右上角，可快速定位特定品牌或报告。若需订阅新闻快讯，可于页面底部填写邮箱。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h2>常见问题摘要</h2>
+
+    <details>
+      <summary>如何找到某个具体品牌的信息？</summary>
+      <p>官网首页「Maisons」板块按字母顺序列出所有品牌，点击任一品牌可跳转至专属页面，包含历史、创意总监及门店查询。</p>
+    </details>
+
+    <details>
+      <summary>是否提供中文内容？</summary>
+      <p>官网支持简体中文与繁体中文，语言切换按钮位于页脚区域。部分深度报告暂时仅提供英文版本。</p>
+    </details>
+
+    <details>
+      <summary>最新新闻稿在哪里查阅？</summary>
+      <p>「新闻」栏目按时间倒序排列，可筛选年份与主题。所有新闻稿均保持原始发布格式。</p>
+    </details>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="closing">
+    <p>以上内容仅为信息整理，不构成任何投资或商业建议。如需获取最准确、最及时的资料，请直接访问<a href="https://keringhq.com">开云</a>官方网站。</p>
+    <p style="margin-top: 0.5rem;">— 2025 · 开放参考</p>
+  </div>
+
+</div>
+
+</body>
+</html>
